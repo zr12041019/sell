@@ -1,0 +1,14 @@
+#Mysql驱动注册
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.244.133/sell?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+
+
+#服务前缀 /sell
+server:
+  context-path: /sell
