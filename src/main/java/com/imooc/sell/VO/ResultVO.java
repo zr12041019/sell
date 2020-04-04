@@ -2,8 +2,6 @@ package com.imooc.sell.VO;
 
 import lombok.Data;
 
-import java.util.List;
-
 /**
  * @Description: http请求返回的最外层对象
  * @author: zr
