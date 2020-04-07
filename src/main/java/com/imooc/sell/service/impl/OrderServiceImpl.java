@@ -14,8 +14,10 @@ import com.imooc.sell.exception.SellException;
 import com.imooc.sell.repository.OrderDetailRepository;
 import com.imooc.sell.repository.OrderMasterRepository;
 import com.imooc.sell.service.OrderService;
+import com.imooc.sell.service.PayService;
 import com.imooc.sell.service.ProductInfoService;
 import com.imooc.sell.utils.KeyUtil;
+import com.lly835.bestpay.model.RefundResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMasterRepository orderMasterRepository;
+
+    @Autowired
+    private PayService payService;
     /**
      * 新建订单
      *
@@ -180,7 +185,7 @@ public class OrderServiceImpl implements OrderService {
         productInfoService.increaseStock(cartDtoList);
         //如果支付 需要退款
         if(orderDto.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())){
-            // TODO
+            RefundResponse refundResponse = payService.refund(orderDto);
         }
 
         return orderDto;
@@ -231,7 +236,7 @@ public class OrderServiceImpl implements OrderService {
             log.error("【订单支付完成】 订单支付状态不正确, oederDto = {}" , orderDto);
             throw  new SellException(ResultEnum.ORDER_PAY_STATUS_ERROR);
         }
-        //判断支付状态
+        //修改支付状态
         orderDto.setPayStatus(PayStatusEnum.SUCCESS.getCode());
 
         OrderMaster orderMaster = OrderDtoToOrderMasterConverter.convert(orderDto);

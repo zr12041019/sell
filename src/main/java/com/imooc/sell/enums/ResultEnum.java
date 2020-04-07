@@ -30,6 +30,10 @@ public enum ResultEnum {
     CART_EMPTY(1009,"购物车为空"),
 
     ORDER_OWNER_ERROR(1010,"该订单不属于当前用户"),
+
+    WECHAT_MP_ERROR(1011,"微信公众账号异常"),
+
+    WXPAY_NOTIFY_MONEY_VERIFY_ERROR(1012,"微信支付金额不一致"),
     ;
     private Integer code;
     private String message;

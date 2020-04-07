@@ -14,3 +14,12 @@ spring:
 #服务前缀 /sell
 server:
   context-path: /sell
+
+#配置微信支付信息
+wechat:
+  mpAppId: wxa7cdbe6041357ac7
+  mpAppSecret: 156f6bab25b99d14844b24aebcdb3e70
+  mchId: 1483469312
+  mchKey: C5245D70627C1F8E9964D494B0735025
+  keyPath: F:/h5.p12
+  notifyUrl: http//sharp.nat100.top/sell/pay/notify

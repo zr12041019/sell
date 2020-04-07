@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "wechat.keyPath",
+      "type": "java.lang.String",
+      "description": "Description for wechat.keyPath."
+  }
+] }

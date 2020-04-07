@@ -25,7 +25,7 @@ import javax.persistence.Id;
 //  　　　　　　或者
 //
 //  　　　　　　@Entity
-// @Table(name = "xwj_user", schema = "test")
+// @Table(name = "xwj_user", schema ="")
 //
 //  　查看@Entity注解，发现其只有一个属性name，表示其所对应的数据库中的表名
 //
