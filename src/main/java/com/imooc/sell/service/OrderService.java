@@ -33,6 +33,13 @@ public interface OrderService {
      */
     Page<OrderDto> findList(String buyerOpenid, Pageable pageable);
 
+
+    /**
+     *查询所有的订单列表
+     * @param pageable Pageable
+     * @return Page<OrderDto>
+     */
+    Page<OrderDto> findList(Pageable pageable);
     /**
      * 取消订单
      * @param orderDto 取消订单对象
@@ -53,4 +60,6 @@ public interface OrderService {
      * @return 完成的订单
      */
     OrderDto paidOrder(OrderDto orderDto);
+
+
 }

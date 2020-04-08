@@ -1,6 +1,7 @@
 package com.imooc.sell.service.impl;
 
 import com.imooc.sell.dataobject.ProductInfo;
+import com.imooc.sell.enums.ProductStatusEnum;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,5 +55,17 @@ public class ProductInfoServiceImplTest {
         ProductInfo productInfo = new ProductInfo("sringh1234","椒麻鸡",new BigDecimal(63.5),100,"专门为高富帅定制的鸡","http://123.jpg",0,2);
         ProductInfo productInfoRe = productInfoServiceImpl.save(productInfo);
         Assert.assertNotNull(productInfoRe);
+    }
+
+    @Test
+    public void onSale(){
+        ProductInfo productInfo = productInfoServiceImpl.onSale("shangpin100002");
+        Assert.assertEquals(ProductStatusEnum.UP,productInfo.getProductStatusEnum());
+    }
+
+    @Test
+    public void offSale(){
+        ProductInfo productInfo = productInfoServiceImpl.offSale("shangpin100002");
+        Assert.assertEquals(ProductStatusEnum.DOWN,productInfo.getProductStatusEnum());
     }
 }

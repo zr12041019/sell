@@ -8,7 +8,7 @@ import lombok.Getter;
  * @date: 2020/4/2 21:33
  */
 @Getter
-public enum ProductStatusEnum {
+public enum ProductStatusEnum implements CodeEnum<Integer> {
 
     UP(0,"商品在架"),
     DOWN(1,"商品下架")

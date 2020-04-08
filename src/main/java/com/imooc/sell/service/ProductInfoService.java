@@ -23,7 +23,7 @@ public interface ProductInfoService {
 
     /**
      * 查询所有在架商品列表
-     * @return 在家商品
+     * @return 在架商品
      */
     List<ProductInfo> findUpAll();
 
@@ -52,5 +52,19 @@ public interface ProductInfoService {
      * @param cartDtoList 购物车对象
      */
     void decreaseStock(List<CartDto> cartDtoList);
+
+    /**
+     * 商品上架
+     * @param productId productId
+     * @return ProductInfo
+     */
+    ProductInfo onSale(String productId);
+
+    /**
+     * 商品下架
+     * @param productId productId
+     * @return ProductInfo
+     */
+    ProductInfo offSale(String productId);
 
 }

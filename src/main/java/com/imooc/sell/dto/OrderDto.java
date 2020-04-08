@@ -1,8 +1,11 @@
 package com.imooc.sell.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.imooc.sell.dataobject.OrderDetail;
+import com.imooc.sell.enums.OrderStatusEnum;
+import com.imooc.sell.enums.PayStatusEnum;
+import com.imooc.sell.utils.EnumUtil;
 import com.imooc.sell.utils.serializer.DateToLongSerializer;
 import lombok.Data;
 
@@ -78,4 +81,22 @@ public class OrderDto {
      * 订单详情表
      */
     private List<OrderDetail> orderDetailList;
+
+    /**
+     * 注解@JsonIgnore ：是为了让对象转JSon的时候忽略掉该方法
+     * @return OrderStatusEnum
+     */
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum(){
+        return EnumUtil.getByCode(orderStatus,OrderStatusEnum.class);
+    }
+
+    /**
+     *
+     * @return PayStatusEnum
+     */
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum(){
+        return EnumUtil.getByCode(payStatus,PayStatusEnum.class);
+    }
 }
