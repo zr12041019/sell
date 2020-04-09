@@ -7,6 +7,11 @@ spring:
     url: jdbc:mysql://192.168.244.133/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
+  #redis配置
+  redis:
+    host: 192.168.244.133
+    port: 6379
+
 #  jackson:
 #    default-property-inclusion: non_null
 
@@ -23,3 +28,12 @@ wechat:
   mchKey: C5245D70627C1F8E9964D494B0735025
   keyPath: F:/h5.p12
   notifyUrl: http//sharp.nat100.top/sell/pay/notify
+  #微信开发平台的信息
+  openAppId:
+  openAppSecret:
+
+#URl
+projectUrl:
+  wechatMpAuthorize: http://sharp.nat100.top
+  wechatOpenAuthorize: http://sharp.nat100.top
+  sell: http://localhost:8080

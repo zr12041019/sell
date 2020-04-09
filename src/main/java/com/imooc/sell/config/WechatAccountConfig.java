@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
 public class WechatAccountConfig {
 
     /**
-     *
+     *公众平台AppId
      */
     private String mpAppId;
 
     /**
-     *
+     *公众平台AppSecret
      */
     private String mpAppSecret;
 
@@ -43,4 +43,14 @@ public class WechatAccountConfig {
      *微信支付异步通知URL
      */
     private String notifyUrl;
+
+    /**
+     *开放平台appId
+     */
+    private String openAppId;
+
+    /**
+     *开放平台AppSecret
+     */
+    private String openAppSecret;
 }
