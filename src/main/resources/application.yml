@@ -36,4 +36,4 @@ wechat:
 projectUrl:
   wechatMpAuthorize: http://sharp.nat100.top
   wechatOpenAuthorize: http://sharp.nat100.top
-  sell: http://192.168.244.133:8090
+  sell: http://localhost:8080
