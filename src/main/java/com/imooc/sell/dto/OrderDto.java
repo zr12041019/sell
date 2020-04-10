@@ -9,6 +9,7 @@ import com.imooc.sell.utils.EnumUtil;
 import com.imooc.sell.utils.serializer.DateToLongSerializer;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -21,9 +22,9 @@ import java.util.List;
 
 //@JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
-public class OrderDto {
+public class OrderDto  implements Serializable {
 
-
+    private static final long serialVersionUID = 5501401138136737913L;
     /**
      * 订单主键
      */

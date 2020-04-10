@@ -16,6 +16,7 @@ import com.imooc.sell.repository.OrderMasterRepository;
 import com.imooc.sell.service.OrderService;
 import com.imooc.sell.service.PayService;
 import com.imooc.sell.service.ProductInfoService;
+import com.imooc.sell.service.SellerWebSocket;
 import com.imooc.sell.utils.KeyUtil;
 import com.lly835.bestpay.model.RefundResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -53,6 +54,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private PayService payService;
+
+    @Autowired
+    private SellerWebSocket sellerWebSocket;
     /**
      * 新建订单
      *
@@ -105,6 +109,9 @@ public class OrderServiceImpl implements OrderService {
                         new CartDto(e.getProductId(),e.getProductQuantity())
                 ).collect(Collectors.toList());
         productInfoService.decreaseStock(cartDtoList);
+
+        //发送websocket消息
+        sellerWebSocket.sendMessage(orderDto.getOrderId());
         return orderDto;
     }
 
